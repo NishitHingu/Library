@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" media="all">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="layout">
+        <div class="container">
+            <div class="top">
+                <div class="heading">
+                    <img src="assets/book.png" alt="symbol">
+                    <h1>Library</h1>
+                </div>
+                <button type="button" class="btn-add">Add Book
+                    <img src="assets/plus.png" alt="symbol">
+                    <div class="img-credits">
+                        Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+                    </div>
+                    </button>
+            </div>
+            <hr>
+            <div class="card-stack">
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <form class="form">
+                <ul class="flex">
+                    <li class="row">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </li>
+                    <li class="row">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" required>
+                    </li>
+                    <li class="row">
+                        <label for="pages">Pages</label>
+                        <input type="number" id="pages" name="pages" required>
+                    </li>
+                    <li class="row">
+                        <label for="read">Read</label>
+                        <div class="read-opt">
+                        <input type="radio" id="yes" class="hidden-input" name="read" value="Completed" required>
+                        <label for="yes" class="read">
+                            <img src="assets/tick.png" alt="yes" class="read-img">
+                        </label>
+                        <input type="radio" id="no" class="hidden-input" name="read" value="" required> 
+                            <label for="no" class="read">
+                                <img src="assets/cross-sign.png" alt="no" class="read-img">
+                                <!-- <div class="img-credits">
+                                    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+                                </div> -->
+                            </label> 
+                        </div>                                     
+                    </li>
+                    <li class="row">
+                        <button type="submit" class="submit">Add
+                            <img src="assets/plus.png" alt="symbol">
+                            <div class="img-credits">
+                                Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+                            </div>
+                        </button>
+                    </li>
+                    
+                </ul>
+            </form>
+            <button type="button" class="close">
+                <img src="assets/cancel.png" alt="">
+                <div class="img-credits">
+                    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+                </div>
+            </button>
+        </div>
+    </div>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
