@@ -122,6 +122,12 @@ img{
     width: 100%;
     background: #bbb;
 }
+/* Card Hover */
+.card-hover{
+    height: 100%;
+    width: 100%;
+    background-color: hsl(0, 0%, 50%);
+}
 
 /* Form */
 

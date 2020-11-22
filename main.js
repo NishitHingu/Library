@@ -12,8 +12,21 @@ layout.removeChild(formWrapper);
 
 // Creating/getting the Library array in which we will store our data
 let myLibrary = [];
-let mybook = new book("Hobbit","J.J.R Tolkin",299,"Completed");
-myLibrary.push(mybook);
+let n = 0;
+if(localStorage.length == 0){
+    let mybook = new book("Hobbit","J.J.R Tolkin",299,"Completed");
+    myLibrary.push(mybook);
+    AddToLocalStorage(mybook);
+}
+else{
+    n = localStorage.length;
+    for(let i = 0; i < n; i++){
+        let key = localStorage.key(i);
+        let value = localStorage.getItem(key);
+        let data = value.split("/");
+        myLibrary.push(new book(data[0],data[1],data[2],data[3]));
+    }
+}
 
 // EventListeners
 closeBtn.addEventListener("click", () => {layout.removeChild(formWrapper);});
@@ -35,24 +48,31 @@ function addBookToLibrary(e){
     let author = formdata.get("author");
     let pages = formdata.get("pages");
     let read = formdata.get("read");
+    if(read === null){
+        read = "";
+    }
     for(let i of myLibrary){
         if(i.title.toLowerCase() == title.toLowerCase()){
             alert("This book is already present in the library");
             return;
         }
     }
-    if(title == "" || author === "" || pages === "" || read === ""){
+    if(title == "" || author === "" || pages === ""){
         alert("Please fill all the required data");
         return; 
     }
-    myLibrary.push(new book(title,author,pages,read));
-    clearForm();
-    myLibrary[myLibrary.length-1].display();
-    layout.removeChild(formWrapper);
-    // let push = "book" + 1;
-    // let value = title + "/" + author + "/" + pages + "/" + read;
-    // console.log(push + value);
-    // localStorage.setItem(push ,value);
+    let info = new book(title,author,pages,read);
+    myLibrary.push(info);
+    AddToLocalStorage(info);
+    location.reload();
+}
+
+// Adding the book info to the local Storage
+function AddToLocalStorage(info){
+    let value = info.title + "/" + info.author + "/" + info.pages + "/" + info.read;
+    let push = "book" + n;
+    n++;
+    localStorage.setItem(push, value);
 }
 
 function clearForm(){
@@ -92,10 +112,8 @@ book.prototype.display = function() {
     card.appendChild(author);
     card.appendChild(pages);
     cardStack.appendChild(card);
-
-    console.log("The " + this.title + " by " + this.author + ", " + this.pages + " , " + this.read + " read yet");
 }
 
-for(let i in myLibrary){
+for(let i = 0; i < myLibrary.length;i++){
     myLibrary[i].display();
 }
